@@ -1,5 +1,9 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Container } from '@chakra-ui/react'
 
 export const App = () => {
-  return <Box>Hello React x ChakraUI</Box>
+  return (
+    <Container>
+      <Box>Hello</Box>
+    </Container>
+  )
 }
