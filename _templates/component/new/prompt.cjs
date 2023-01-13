@@ -18,11 +18,10 @@ module.exports = [
     validate: inputValidator,
   },
   {
-    type: 'toggle',
-    name: 'withProps',
-    message: 'Do you want to create Props at the same time?',
-    disabled: 'yes',
-    enabled: 'no',
-    initial: true,
+    type: "confirm",
+    name: "have_props",
+    message: "Do you want to create Props at the same time?",
+    choices: ["Yes", "No"],
+    initial: "Yes",
   },
 ]

@@ -2,11 +2,11 @@
 to: src/components/<%= path %>/<%= name %>.tsx
 ---
 import { Box } from '@chakra-ui/react'
-<% if(withProps) { -%>
+<% if(have_props) { -%>
 type Props = {}
 <%} -%>
 
-export const <%= name %> = (<% if(withProps) { -%> props: Props <%} -%>) => {
+export const <%= name %> = (<% if(have_props) { -%> props: Props <%} -%>) => {
   return (
     <Box>
       <%= name %>

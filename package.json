@@ -14,12 +14,18 @@
     "hygen": "hygen component new"
   },
   "dependencies": {
+    "chart.js": "^4.0.1",
+    "firebase": "9.13.0",
+    "firebase-tools": "^11.20.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.4",
     "ts-node": "^10.9.1",
     "vite-plugin-pwa": "^0.13.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.5",
     "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11",
@@ -29,6 +35,7 @@
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "@vitejs/plugin-react": "^2.2.0",
+    "babel-loader": "^8.3.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.11",
@@ -47,5 +54,8 @@
       "yarn format",
       "yarn lint:fix"
     ]
+  },
+  "volta": {
+    "node": "16.18.1"
   }
 }
