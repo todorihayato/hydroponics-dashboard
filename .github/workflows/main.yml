@@ -12,6 +12,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: yarn add firebase-tools
       - run: yarn && yarn build
-      - run: firebase deploy --token $FIREBASE_TOKEN
+      - run: yarn firebase deploy --token $FIREBASE_TOKEN
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
