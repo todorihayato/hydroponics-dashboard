@@ -1,8 +1,7 @@
-import { HStack } from '@chakra-ui/react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { RouterProvider } from "./config/router"
 
 export const App = () => {
   return (
-  <h1>CDテスト</h1>
+    <RouterProvider/>
   )
 }
