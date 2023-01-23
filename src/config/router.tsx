@@ -1,5 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Co2,Ec,Humidity,Home,Temperature,WaterTemperature } from '../components/pages'
+import {
+  Co2,
+  Ec,
+  Humidity,
+  Dashboard,
+  Temperature,
+  WaterTemperature,
+} from '../components/pages'
 import { Layout } from '../components/parts'
 
 export const RouterProvider = () => {
@@ -7,7 +14,7 @@ export const RouterProvider = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Dashboard />} />
           <Route path="ec" element={<Ec />} />
           <Route path="humidity" element={<Humidity />} />
           <Route path="temperature" element={<Temperature />} />

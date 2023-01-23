@@ -2303,6 +2303,16 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.8.1.tgz#5fbb3808677aa6b88bf79968237d3bb14595b1ba"
   integrity sha512-CJW8vxt6bJaBeco2VnlJjmCmAkrrtIdf0GGKvpAB4J5gw8Gi0rHb+qsgKp6LsyS5W6ALPLawLs7phZmw02dvLw==
 
+"@fontsource/kosugi-maru@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/kosugi-maru/-/kosugi-maru-4.5.9.tgz#d7895e6f3970dca826ba48f012ba9b1b5e05db27"
+  integrity sha512-slq5O1ILQp0nBT+UaI9VOMC+cVIpcAW/HJHRNcnnvAhuMRtuvI1D3lTnfrpO4j4KMHrHsGdHPbTufizKuFp5zQ==
+
+"@fontsource/m-plus-rounded-1c@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/m-plus-rounded-1c/-/m-plus-rounded-1c-4.5.10.tgz#d98c7df36bd593bd44bc6060c3d8afecffb52d55"
+  integrity sha512-spzDBo7ni2QyY0XaTKtu97juLq9cFgWSIQ2OpP2nAd++WCaKu1KFsobWCpSqRbBJhPXdMrbanRprcslYI6EeRg==
+
 "@grpc/grpc-js@^1.3.2":
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.7.3.tgz#f2ea79f65e31622d7f86d4b4c9ae38f13ccab99a"
