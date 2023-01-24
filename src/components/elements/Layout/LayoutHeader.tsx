@@ -22,7 +22,7 @@ export const LayoutHeader = () => {
     }
   }
   return (
-    <Box h={'72px'} w={'calc(100% - 240px)'} position={'fixed'} shadow={'lg'} ml={"240px"}>
+    <Box h={'72px'} w={'calc(100% - 240px)'} position={'fixed'} boxShadow={'md'} ml={"240px"} zIndex={'2'}>
       <Text fontWeight={'800'} fontSize={'2xl'} ml={'32px'} my={'16px'}>
         {convertPath(path)}
       </Text>
