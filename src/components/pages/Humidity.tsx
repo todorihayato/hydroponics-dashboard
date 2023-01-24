@@ -1,9 +1,10 @@
-import { Box } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
+import { PagesContainer } from '../parts'
 
 export const Humidity = () => {
   return (
-    <Box>
-      Humidity
-    </Box>
+    <PagesContainer>
+      <Text fontWeight={"800"}>Humidity</Text>
+    </PagesContainer>
   )
 }

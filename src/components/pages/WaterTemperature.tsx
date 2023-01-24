@@ -1,9 +1,10 @@
-import { Box } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
+import { PagesContainer } from '../parts'
 
 export const WaterTemperature = () => {
   return (
-    <Box>
-      WaterTemperature
-    </Box>
+    <PagesContainer>
+      <Text fontWeight={"800"}>WaterTemperature</Text>
+    </PagesContainer>
   )
 }

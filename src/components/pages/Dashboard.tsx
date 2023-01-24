@@ -1,5 +1,10 @@
-import { Box } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
+import { PagesContainer } from '../parts'
 
 export const Dashboard = () => {
-  return <Box>Dashboard</Box>
+  return (
+    <PagesContainer>
+      <Text fontWeight={"800"}>Dashboard</Text>
+    </PagesContainer>
+  )
 }

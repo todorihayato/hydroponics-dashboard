@@ -1,9 +1,12 @@
-import { Box } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
+import { PagesContainer } from '../parts'
 
 export const Co2 = () => {
   return (
-    <Box>
-      Co2
-    </Box>
+    <PagesContainer>
+      <Text fontWeight={'800'}>
+        CO<sub>2</sub>
+      </Text>
+    </PagesContainer>
   )
 }
