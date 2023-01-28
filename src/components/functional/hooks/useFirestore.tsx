@@ -26,6 +26,5 @@ export const useFirestore = (date: string) => {
     })
     setDatas(newDatas)
   })
-  // console.log(datas)
   return datas
 }

@@ -1,7 +1,8 @@
-import { Button } from '@chakra-ui/react'
+import { Box, Button } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useFirestore } from '../functional/hooks/useFirestore'
-import { Chart, ChartOptionType, PagesContainer } from '../parts'
+import { PagesContainer } from '../parts'
+import ReactECharts from 'echarts-for-react';
 
 export const Dashboard = () => {
   const [isPageRefreshed, setIsPageRefreshed] = useState<boolean>(false)
@@ -9,42 +10,25 @@ export const Dashboard = () => {
   const [temperatureData, setTemperatureData] = useState<string[]>([])
   const nowDate = new Date().toISOString().slice(0, 10)
   const datas = useFirestore(nowDate)
-  const option: ChartOptionType = {
-    title: {
-      text: 'Echartsの重複レンダリングを修正する！！！',
-    },
-    tooltip: {
-      trigger: 'axis',
-    },
-    legend: {},
+  const option = {
+    grid: { top: 8, right: 8, bottom: 24, left: 36 },
     xAxis: {
       type: 'category',
-      boundaryGap: false,
       data: xAxisData,
     },
     yAxis: {
       type: 'value',
-      axisLabel: {
-        formatter: '{value} °C',
-      },
     },
     series: [
       {
-        name: 'Temperature',
+        data: temperatureData,
         type: 'line',
         smooth: true,
-        data: temperatureData,
-        markPoint: {
-          data: [
-            { type: 'max', name: 'Max' },
-            { type: 'min', name: 'Min' },
-          ],
-        },
-        markLine: {
-          data: [{ type: 'average', name: 'Avg' }],
-        },
       },
     ],
+    tooltip: {
+      trigger: 'axis',
+    },
   }
 
   useEffect(() => {
@@ -52,12 +36,13 @@ export const Dashboard = () => {
     setTemperatureData(datas.map((data) => data.temperature))
   }, [datas, isPageRefreshed])
 
+
   return (
     <PagesContainer>
       <Button onClick={() => setIsPageRefreshed(!isPageRefreshed)}>
         RELOAD
       </Button>
-      <Chart option={option} />
+      <ReactECharts option={option} />
     </PagesContainer>
   )
 }
