@@ -18,7 +18,7 @@ export const LayoutHeader = () => {
       case "/water_temperature":
         return "Water Temperature"
       default:
-        return "ERROR"
+        return "404 Not Found😴"
     }
   }
   return (

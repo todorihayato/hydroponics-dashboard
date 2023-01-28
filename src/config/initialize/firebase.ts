@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app'
+import { getFirestore, connectFirestoreEmulator, enableIndexedDbPersistence } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -6,7 +7,21 @@ const firebaseConfig = {
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 }
 
 export const app = initializeApp(firebaseConfig)
+export const db = getFirestore()
+// const isEmulating = window.location.hostname === 'localhost'
+// if (isEmulating) {
+//   connectFirestoreEmulator(db, 'localhost', 8080)
+// }
+
+enableIndexedDbPersistence(db)
+  .catch((err) => {
+      if (err.code == 'failed-precondition') {
+          console.log('failed-precondition')
+      } else if (err.code == 'unimplemented') {
+        console.log('unimplemented')
+      }
+  });

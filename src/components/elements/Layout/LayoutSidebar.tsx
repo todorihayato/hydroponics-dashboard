@@ -1,5 +1,5 @@
 import { Box, Divider, TabList, Tabs, Text } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { LayoutTab } from './LayoutTab'
 
 export const LayoutSidebar = () => {
@@ -31,7 +31,7 @@ export const LayoutSidebar = () => {
         fontWeight={'800'}
         fontSize={'xl'}
       >
-        IoT Hydroponics
+        <Link to='/'>IoT Hydroponics</Link>
       </Text>
       <Box display={'flex'} justifyContent={'center'}>
         <Divider w={'152.82px'} opacity={1}/>

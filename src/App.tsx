@@ -1,5 +1,8 @@
+import { SensingDataProvider } from './components/functional/contexts/SensingDataContext'
 import { RouterProvider } from './config/router'
 
-export const App = () => {
-  return <RouterProvider />
-}
+export const App = () => (
+  <SensingDataProvider>
+    <RouterProvider />
+  </SensingDataProvider>
+)
