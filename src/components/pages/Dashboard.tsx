@@ -1,48 +1,92 @@
-import { Box, Button } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
-import { useFirestore } from '../functional/hooks/useFirestore'
-import { PagesContainer } from '../parts'
-import ReactECharts from 'echarts-for-react';
+import { useSensingData } from '../functional/hooks/useSensingData'
+import {
+  Co2Chart,
+  EcChart,
+  HumidityChart,
+  PagesContainer,
+  TemperatureChart,
+  TemperaturesChart,
+  WaterTemperatureChart,
+} from '../parts'
 
 export const Dashboard = () => {
-  const [isPageRefreshed, setIsPageRefreshed] = useState<boolean>(false)
-  const [xAxisData, setXAxisData] = useState<string[]>([])
-  const [temperatureData, setTemperatureData] = useState<string[]>([])
+  const [times, setTimes] = useState<string[]>([])
+  const [temperatureDatas, setTemperatureDatas] = useState<number[]>([])
+  const [waterTemperatureDatas, setWaterTemperatureDatas] = useState<number[]>(
+    [],
+  )
+  const [co2Datas, setCo2Datas] = useState<number[]>([])
+  const [humidityDatas, setHumidityDatas] = useState<number[]>([])
+  const [ecDatas, setEcDatas] = useState<number[]>([])
   const nowDate = new Date().toISOString().slice(0, 10)
-  const datas = useFirestore(nowDate)
-  const option = {
-    grid: { top: 8, right: 8, bottom: 24, left: 36 },
-    xAxis: {
-      type: 'category',
-      data: xAxisData,
-    },
-    yAxis: {
-      type: 'value',
-    },
-    series: [
-      {
-        data: temperatureData,
-        type: 'line',
-        smooth: true,
-      },
-    ],
-    tooltip: {
-      trigger: 'axis',
-    },
-  }
+  const datas = useSensingData(nowDate)
 
   useEffect(() => {
-    setXAxisData(datas.map((data) => data.time))
-    setTemperatureData(datas.map((data) => data.temperature))
-  }, [datas, isPageRefreshed])
-
+    setTemperatureDatas(datas.map((data) => Math.floor(data.temperature)))
+    setWaterTemperatureDatas(
+      datas.map((data) => Math.floor(data.water_temperature)),
+    )
+    setCo2Datas(datas.map((data) => data.co2))
+    setHumidityDatas(datas.map((data) => Math.floor(data.humidity)))
+    setEcDatas(datas.map((data) => Math.floor(data.ec * 100) / 100))
+    setTimes(datas.map((data) => data.time))
+  }, [datas])
 
   return (
     <PagesContainer>
-      <Button onClick={() => setIsPageRefreshed(!isPageRefreshed)}>
-        RELOAD
-      </Button>
-      <ReactECharts option={option} />
+      <Text fontWeight={'800'} fontSize={'2xl'}>
+        Realtime Data
+      </Text>
+      <Box display={'flex'} w={'100%'} justifyContent={'space-between'} mt={4}>
+        <TemperatureChart
+          temperatureArray={temperatureDatas}
+          w={'calc(20% - 12px)'}
+          h={'200px'}
+        />
+        <WaterTemperatureChart
+          waterTemperatureArray={waterTemperatureDatas}
+          w={'calc(20% - 12px)'}
+          h={'200px'}
+        />
+        <Co2Chart co2Array={co2Datas} w={'calc(20% - 12px)'} h={'200px'} />
+        <HumidityChart
+          humidityArray={humidityDatas}
+          w={'calc(20% - 12px)'}
+          h={'200px'}
+        />
+        <EcChart ecArray={ecDatas} w={'calc(20% - 12px)'} h={'200px'} />
+      </Box>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        justifyContent={'space-between'}
+        h={{ xl: '640px' }}
+      >
+        <Text
+          fontWeight={'800'}
+          fontSize={'2xl'}
+          my={4}
+          alignSelf={'flex-start'}
+        >
+          MultiDatas Chart / とりあえず制御機能実装しちゃおう
+        </Text>
+        <Box w={'100%'} display={'flex'} justifyContent={'space-between'}>
+          <TemperaturesChart
+            temperatureArray={temperatureDatas}
+            waterTemperatureArray={waterTemperatureDatas}
+            timeArray={times}
+            w={'calc(50% - 8px)'}
+          />
+          <TemperaturesChart
+            temperatureArray={temperatureDatas}
+            waterTemperatureArray={waterTemperatureDatas}
+            timeArray={times}
+            w={'calc(50% - 8px)'}
+          />
+        </Box>
+      </Box>
     </PagesContainer>
   )
 }
