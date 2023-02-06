@@ -1,14 +1,14 @@
 import { Box } from '@chakra-ui/react'
 import ReactECharts from 'echarts-for-react'
 type Props = {
-  temperatureArray: number[]
-  waterTemperatureArray: number[]
-  timeArray: string[]
+  temperatureDatas: number[]
+  waterTemperatureDatas: number[]
+  times: string[]
   w?: string
   h?: string
 }
 
-export const TemperaturesChart = (props: Props) => {
+export const DashboardMultiDatasChartTempAndWTemp = (props: Props) => {
   const option = {
     grid: {
       top: '72px',
@@ -28,7 +28,7 @@ export const TemperaturesChart = (props: Props) => {
       type: 'category',
       boundaryGap: false,
       alignWithLabel: true,
-      data: props.timeArray,
+      data: props.times,
       axisLabel: {
         fontFamily: `'M PLUS Rounded 1c'`,
         fontWeight: '800',
@@ -51,30 +51,46 @@ export const TemperaturesChart = (props: Props) => {
         name: 'Temp',
         type: 'line',
         smooth: true,
-        data: props.temperatureArray,
+        data: props.temperatureDatas,
         markPoint: {
           data: [
             { type: 'max', name: 'Max' },
             { type: 'min', name: 'Min' },
           ],
+          label: {
+            fontFamily: `'M PLUS Rounded 1c'`,
+            fontWeight: '800'
+          },
         },
         markLine: {
           data: [{ type: 'average', name: 'Avg' }],
+          label: {
+            fontFamily: `'M PLUS Rounded 1c'`,
+            fontWeight: '800'
+          },
         },
       },
       {
         name: 'Water Temp',
         type: 'line',
         smooth: true,
-        data: props.waterTemperatureArray,
+        data: props.waterTemperatureDatas,
         markPoint: {
           data: [
             { type: 'max', name: 'Max' },
             { type: 'min', name: 'Min' },
           ],
+          label: {
+            fontFamily: `'M PLUS Rounded 1c'`,
+            fontWeight: '800'
+          },
         },
         markLine: {
           data: [{ type: 'average', name: 'Avg' }],
+          label: {
+            fontFamily: `'M PLUS Rounded 1c'`,
+            fontWeight: '800'
+          },
         },
       },
     ],
@@ -87,7 +103,7 @@ export const TemperaturesChart = (props: Props) => {
       rounded={'xl'}
       bg={'white'}
     >
-      <ReactECharts option={option} style={{height: '48vh'}}/>
+      <ReactECharts option={option} style={{height: '100%'}}/>
     </Box>
   )
 }

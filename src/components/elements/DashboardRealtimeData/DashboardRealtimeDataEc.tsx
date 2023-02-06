@@ -7,7 +7,7 @@ type Props = {
   h?: string
 }
 
-export const EcChart = (props: Props) => {
+export const DashboardRealtimeDataEc = (props: Props) => {
   const option = {
     series: [
       {

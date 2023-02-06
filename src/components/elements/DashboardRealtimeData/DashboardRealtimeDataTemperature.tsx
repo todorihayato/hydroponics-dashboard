@@ -2,26 +2,26 @@ import { Box, Text } from '@chakra-ui/react'
 import ReactECharts from 'echarts-for-react'
 
 type Props = {
-  co2Array: number[]
+  temperatureArray: number[]
   w?: string
   h?: string
 }
 
-export const Co2Chart = (props: Props) => {
+export const DashboardRealtimeDataTemperature = (props: Props) => {
   const option = {
     series: [
       {
         data: [
           {
-            value: props.co2Array[props.co2Array.length - 1],
+            value: props.temperatureArray[props.temperatureArray.length - 1],
           },
         ],
         type: 'gauge',
         center: ['50%', '45%'],
         startAngle: 200,
         endAngle: -20,
-        min: 100,
-        max: 2000,
+        min: -10,
+        max: 40,
         splitNumber: 5,
         itemStyle: {
           color: '#FFAB91',
@@ -38,7 +38,7 @@ export const Co2Chart = (props: Props) => {
           show: true,
           roundCap: true,
           lineStyle: {
-            width: 10
+            width: 10,
           },
         },
         axisTick: {
@@ -82,7 +82,7 @@ export const Co2Chart = (props: Props) => {
         top={2}
         letterSpacing={'.05rem'}
       >
-        CO<sub>2</sub>
+        Temp
       </Text>
       <ReactECharts option={option} />
     </Box>

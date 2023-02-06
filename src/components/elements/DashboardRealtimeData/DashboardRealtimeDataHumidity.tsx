@@ -7,7 +7,7 @@ type Props = {
   h?: string
 }
 
-export const HumidityChart = (props: Props) => {
+export const DashboardRealtimeDataHumidity = (props: Props) => {
   const option = {
     series: [
       {

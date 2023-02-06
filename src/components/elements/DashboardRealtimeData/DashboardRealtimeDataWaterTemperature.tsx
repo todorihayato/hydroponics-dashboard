@@ -2,18 +2,21 @@ import { Box, Text } from '@chakra-ui/react'
 import ReactECharts from 'echarts-for-react'
 
 type Props = {
-  temperatureArray: number[]
+  waterTemperatureArray: number[]
   w?: string
   h?: string
 }
 
-export const TemperatureChart = (props: Props) => {
+export const DashboardRealtimeDataWaterTemperature = (props: Props) => {
   const option = {
     series: [
       {
         data: [
           {
-            value: props.temperatureArray[props.temperatureArray.length - 1],
+            value:
+              props.waterTemperatureArray[
+                props.waterTemperatureArray.length - 1
+              ],
           },
         ],
         type: 'gauge',
@@ -82,7 +85,7 @@ export const TemperatureChart = (props: Props) => {
         top={2}
         letterSpacing={'.05rem'}
       >
-        Temp
+        Water Temp
       </Text>
       <ReactECharts option={option} />
     </Box>
