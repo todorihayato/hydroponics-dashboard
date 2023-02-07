@@ -24,7 +24,7 @@ export const DashboardRealtimeDataEc = (props: Props) => {
         max: 2,
         splitNumber: 5,
         itemStyle: {
-          color: '#FFAB91',
+          color: '#F687B3',
         },
         progress: {
           show: true,

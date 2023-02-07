@@ -24,7 +24,7 @@ export const DashboardRealtimeDataCo2 = (props: Props) => {
         max: 2000,
         splitNumber: 5,
         itemStyle: {
-          color: '#FFAB91',
+          color: '#68D391',
         },
         progress: {
           show: true,

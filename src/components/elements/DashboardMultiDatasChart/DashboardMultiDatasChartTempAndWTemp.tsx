@@ -52,6 +52,12 @@ export const DashboardMultiDatasChartTempAndWTemp = (props: Props) => {
         type: 'line',
         smooth: true,
         data: props.temperatureDatas,
+        lineStyle: {
+          color: '#F6E05E'
+        },
+        itemStyle: {
+          color: '#F6E05E'
+        },
         markPoint: {
           data: [
             { type: 'max', name: 'Max' },
@@ -75,6 +81,12 @@ export const DashboardMultiDatasChartTempAndWTemp = (props: Props) => {
         type: 'line',
         smooth: true,
         data: props.waterTemperatureDatas,
+        lineStyle: {
+          color: '#4FD1C5'
+        },
+        itemStyle: {
+          color: '#4FD1C5'
+        },
         markPoint: {
           data: [
             { type: 'max', name: 'Max' },

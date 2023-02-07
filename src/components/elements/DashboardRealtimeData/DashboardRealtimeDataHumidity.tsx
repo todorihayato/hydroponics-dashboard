@@ -24,7 +24,7 @@ export const DashboardRealtimeDataHumidity = (props: Props) => {
         max: 100,
         splitNumber: 5,
         itemStyle: {
-          color: '#FFAB91',
+          color: '#76E4F7',
         },
         progress: {
           show: true,

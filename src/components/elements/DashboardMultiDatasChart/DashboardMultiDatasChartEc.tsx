@@ -51,6 +51,12 @@ export const DashboardMultiDatasChartEc = (props: Props) => {
         type: 'line',
         smooth: true,
         data: props.ecDatas,
+        lineStyle: {
+          color: '#F687B3'
+        },
+        itemStyle: {
+          color: '#F687B3'
+        },
         markPoint: {
           data: [
             { type: 'max', name: 'Max' },

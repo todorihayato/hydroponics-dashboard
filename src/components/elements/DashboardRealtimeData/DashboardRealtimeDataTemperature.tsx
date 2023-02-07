@@ -24,7 +24,7 @@ export const DashboardRealtimeDataTemperature = (props: Props) => {
         max: 40,
         splitNumber: 5,
         itemStyle: {
-          color: '#FFAB91',
+          color: '#F6E05E',
         },
         progress: {
           show: true,

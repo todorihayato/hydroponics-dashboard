@@ -51,6 +51,12 @@ export const DashboardMultiDatasChartHumidity = (props: Props) => {
         type: 'line',
         smooth: true,
         data: props.humidityDatas,
+        lineStyle: {
+          color: '#76E4F7'
+        },
+        itemStyle: {
+          color: '#76E4F7'
+        },
         markPoint: {
           data: [
             { type: 'max', name: 'Max' },

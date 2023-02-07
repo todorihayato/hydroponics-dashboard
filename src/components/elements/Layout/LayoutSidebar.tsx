@@ -16,11 +16,11 @@ export const LayoutSidebar = () => {
         return 1
       case 'water_temperature':
         return 2
-      case 'co2':
-        return 3
       case 'humidity':
-        return 4
+        return 3
       case 'ec':
+        return 4
+      case 'co2':
         return 5
       case 'control':
         return 6
@@ -37,11 +37,11 @@ export const LayoutSidebar = () => {
       case 2:
         return 'water_temperature'
       case 3:
-        return 'co2'
-      case 4:
         return 'humidity'
-      case 5:
+      case 4:
         return 'ec'
+      case 5:
+        return 'co2'
       case 6:
         return 'control'
       default:
@@ -74,11 +74,11 @@ export const LayoutSidebar = () => {
             <Divider opacity={1}/>
             <LayoutTab>Temperature</LayoutTab>
             <LayoutTab>Water Temp</LayoutTab>
+            <LayoutTab>Humidity</LayoutTab>
+            <LayoutTab>EC</LayoutTab>
             <LayoutTab>
               CO<sub>2</sub>
             </LayoutTab>
-            <LayoutTab>Humidity</LayoutTab>
-            <LayoutTab>EC</LayoutTab>
             <Divider opacity={1}/>
             <LayoutTab>Control</LayoutTab>
           </TabList>

@@ -51,6 +51,12 @@ export const DashboardMultiDatasChartCo2 = (props: Props) => {
         type: 'line',
         smooth: true,
         data: props.co2Datas,
+        lineStyle: {
+          color: '#68D391'
+        },
+        itemStyle: {
+          color: '#68D391'
+        },
         markPoint: {
           data: [
             { type: 'max', name: 'Max' },

@@ -27,7 +27,7 @@ export const DashboardRealtimeDataWaterTemperature = (props: Props) => {
         max: 40,
         splitNumber: 5,
         itemStyle: {
-          color: '#FFAB91',
+          color: '#4FD1C5',
         },
         progress: {
           show: true,

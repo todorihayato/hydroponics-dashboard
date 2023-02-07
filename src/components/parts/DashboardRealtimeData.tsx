@@ -31,13 +31,13 @@ export const DashboardRealtimeData = () => {
         w={w}
         h={h}
       />
-      <DashboardRealtimeDataCo2 co2Array={co2Datas} w={w} h={h} />
       <DashboardRealtimeDataHumidity
         humidityArray={humidityDatas}
         w={w}
         h={h}
       />
       <DashboardRealtimeDataEc ecArray={ecDatas} w={w} h={h} />
+      <DashboardRealtimeDataCo2 co2Array={co2Datas} w={w} h={h} />
     </Box>
   )
 }
