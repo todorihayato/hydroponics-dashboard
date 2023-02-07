@@ -21,13 +21,11 @@ export const Dashboard = () => {
   const datas = useSensingData(nowDate)
 
   useEffect(() => {
-    setTemperatureDatas(datas.map((data) => Math.floor(data.temperature)))
-    setWaterTemperatureDatas(
-      datas.map((data) => Math.floor(data.water_temperature)),
-    )
+    setTemperatureDatas(datas.map((data) => data.temperature))
+    setWaterTemperatureDatas(datas.map((data) => data.water_temperature))
     setCo2Datas(datas.map((data) => data.co2))
-    setHumidityDatas(datas.map((data) => Math.floor(data.humidity)))
-    setEcDatas(datas.map((data) => Math.floor(data.ec * 100) / 100))
+    setHumidityDatas(datas.map((data) => data.humidity))
+    setEcDatas(datas.map((data) => data.ec))
     setTimes(datas.map((data) => data.time))
   }, [datas])
 
