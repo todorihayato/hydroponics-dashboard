@@ -157,27 +157,40 @@ export const Control = () => {
           <CardHeader fontWeight={'800'} fontSize={'lg'} p={4} pb={0}>
             Fan
           </CardHeader>
-          <CardBody p={4} pt={0}>
-            <VStack w={'100%'}>
+          <CardBody
+            p={4}
+            pt={0}
+            display={'flex'}
+            flexDirection={'column'}
+            justifyContent={'center'}
+          >
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              justifyContent={'center'}
+              alignItems={'center'}
+              w={'100%'}
+            >
               <Text
-                mt={'-8px'}
                 fontWeight={'800'}
-                fontSize={'5xl'}
+                fontSize={'4xl'}
                 _after={{ content: '"ppm"', fontSize: '2xl' }}
               >
                 {fan?.min_co2}
               </Text>
-              <Text fontWeight={'800'} fontSize={'3xl'}>
-                to
-              </Text>
+              <Box my={'-8px'}>
+                <Text fontWeight={'800'} fontSize={'3xl'}>
+                  to
+                </Text>
+              </Box>
               <Text
                 fontWeight={'800'}
-                fontSize={'5xl'}
+                fontSize={'4xl'}
                 _after={{ content: '"ppm"', fontSize: '2xl' }}
               >
                 {fan?.max_co2}
               </Text>
-            </VStack>
+            </Box>
           </CardBody>
         </Card>
         <Card
@@ -197,19 +210,25 @@ export const Control = () => {
             display={'flex'}
             alignItems={'center'}
           >
-            <VStack w={'100%'}>
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              justifyContent={'center'}
+              alignItems={'center'}
+              w={'100%'}
+            >
               <Text
                 mt={'-8px'}
                 fontWeight={'800'}
-                fontSize={'5xl'}
+                fontSize={'4xl'}
                 _after={{ content: '"mS/cm"', fontSize: '2xl' }}
               >
                 {fertilizer?.min_ec}
               </Text>
-              <Text fontWeight={'800'} fontSize={'3xl'}>
+              <Text fontWeight={'800'} fontSize={'3xl'} mt={'-8px'}>
                 or berrow
               </Text>
-            </VStack>
+            </Box>
           </CardBody>
         </Card>
         <Card
@@ -222,27 +241,35 @@ export const Control = () => {
           <CardHeader fontWeight={'800'} fontSize={'lg'} p={4} pb={0}>
             Heater
           </CardHeader>
-          <CardBody p={4} pt={0}>
-            <VStack w={'100%'}>
+          <CardBody p={4} pt={0} display={'flex'} alignItems={'center'}>
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              justifyContent={'center'}
+              alignItems={'center'}
+              w={'100%'}
+            >
               <Text
                 mt={'-8px'}
                 fontWeight={'800'}
-                fontSize={'5xl'}
+                fontSize={'4xl'}
                 _after={{ content: '"℃"', fontSize: '2xl' }}
               >
                 {heater?.min_w_temp}
               </Text>
-              <Text fontWeight={'800'} fontSize={'3xl'}>
-                to
-              </Text>
+              <Box>
+                <Text my={'-8px'} fontWeight={'800'} fontSize={'3xl'}>
+                  to
+                </Text>
+              </Box>
               <Text
                 fontWeight={'800'}
-                fontSize={'5xl'}
+                fontSize={'4xl'}
                 _after={{ content: '"℃"', fontSize: '2xl' }}
               >
                 {heater?.max_w_temp}
               </Text>
-            </VStack>
+            </Box>
           </CardBody>
         </Card>
         <Card
@@ -255,18 +282,26 @@ export const Control = () => {
           <CardHeader fontWeight={'800'} fontSize={'lg'} p={4} pb={0}>
             Light
           </CardHeader>
-          <CardBody p={4} pt={0}>
-            <VStack w={'100%'}>
-              <Text mt={'-8px'} fontWeight={'800'} fontSize={'5xl'}>
+          <CardBody p={4} pt={0} display={'flex'} alignItems={'center'}>
+            <Box
+              display={'flex'}
+              justifyContent={'center'}
+              flexDirection={'column'}
+              alignItems={'center'}
+              w={'100%'}
+            >
+              <Text mt={'-8px'} fontWeight={'800'} fontSize={'4xl'}>
                 {light?.start_time}
               </Text>
-              <Text fontWeight={'800'} fontSize={'3xl'}>
-                to
-              </Text>
-              <Text fontWeight={'800'} fontSize={'5xl'}>
+              <Box my={'-8px'}>
+                <Text fontWeight={'800'} fontSize={'3xl'}>
+                  to
+                </Text>
+              </Box>
+              <Text fontWeight={'800'} fontSize={'4xl'}>
                 {light?.end_time}
               </Text>
-            </VStack>
+            </Box>
           </CardBody>
         </Card>
       </Box>
@@ -276,17 +311,18 @@ export const Control = () => {
       <Box
         display={'flex'}
         flexDirection={'column'}
+        justifyContent={'space-between'}
         w={'100%'}
-        h={'calc(100% - 370px)'}
+        h={"51.7vh"}
       >
-        <Card shadow={'lg'} rounded={'xl'} bg={'white'} h={'23%'} mb={2}>
+        <Card shadow={'lg'} rounded={'xl'} bg={'white'} mb={2}>
           <CardHeader fontWeight={'800'} fontSize={'lg'} p={4} pb={0}>
             Fan
           </CardHeader>
           <CardBody p={4} pt={0}>
-            <HStack mt={'-27px'}>
+            <HStack mt={"-27px"}>
               <VStack w={'100%'} mx={6}>
-                <HStack mb={2}>
+                <HStack mb={"-12px"}>
                   <Text fontWeight={'800'} fontSize={'3xl'}>
                     {co2Range[0]}
                   </Text>
@@ -331,14 +367,14 @@ export const Control = () => {
             </HStack>
           </CardBody>
         </Card>
-        <Card shadow={'lg'} rounded={'xl'} bg={'white'} h={'23%'} my={2}>
+        <Card shadow={'lg'} rounded={'xl'} bg={'white'} my={2}>
           <CardHeader fontWeight={'800'} fontSize={'lg'} p={4} pb={0}>
             Fertilizer
           </CardHeader>
           <CardBody p={4} pt={0}>
             <HStack mt={'-27px'}>
               <VStack w={'100%'} mx={6}>
-                <HStack mb={2}>
+                <HStack mb={"-12px"}>
                   <Text fontWeight={'800'} fontSize={'3xl'}>
                     {ecValue}
                   </Text>
@@ -368,14 +404,14 @@ export const Control = () => {
             </HStack>
           </CardBody>
         </Card>
-        <Card shadow={'lg'} rounded={'xl'} bg={'white'} h={'23%'} my={2}>
+        <Card shadow={'lg'} rounded={'xl'} bg={'white'} my={2}>
           <CardHeader fontWeight={'800'} fontSize={'lg'} p={4} pb={0}>
             Heater
           </CardHeader>
           <CardBody p={4} pt={0}>
             <HStack mt={'-27px'}>
               <VStack w={'100%'} mx={6}>
-                <HStack mb={2}>
+                <HStack mb={"-12px"}>
                   <Text fontWeight={'800'} fontSize={'3xl'}>
                     {wTempRange[0]}
                   </Text>
@@ -400,12 +436,12 @@ export const Control = () => {
                   </RangeSliderTrack>
                   <RangeSliderThumb boxSize={6} index={0}>
                     <Box>
-                      <DragHandleIcon boxSize={'.75rem'}/>
+                      <DragHandleIcon boxSize={'.75rem'} />
                     </Box>
                   </RangeSliderThumb>
                   <RangeSliderThumb boxSize={6} index={1}>
                     <Box>
-                      <DragHandleIcon boxSize={'.75rem'}/>
+                      <DragHandleIcon boxSize={'.75rem'} />
                     </Box>
                   </RangeSliderThumb>
                 </RangeSlider>
@@ -419,14 +455,14 @@ export const Control = () => {
             </HStack>
           </CardBody>
         </Card>
-        <Card shadow={'lg'} rounded={'xl'} bg={'white'} h={'23%'} mt={2}>
+        <Card shadow={'lg'} rounded={'xl'} bg={'white'} mt={2}>
           <CardHeader fontWeight={'800'} fontSize={'lg'} p={4} pb={0}>
             Light
           </CardHeader>
           <CardBody p={4} pt={0}>
             <HStack mt={'-27px'}>
               <VStack w={'100%'} mx={6}>
-                <HStack mb={2}>
+                <HStack mb={"-12px"}>
                   <Text fontWeight={'800'} fontSize={'3xl'}>
                     {startTime[0]}
                   </Text>
@@ -448,10 +484,10 @@ export const Control = () => {
                   >
                     <SliderTrack />
                     <SliderThumb boxSize={6}>
-                    <Box>
-                      <DragHandleIcon boxSize={'.75rem'} />
-                    </Box>
-                  </SliderThumb>
+                      <Box>
+                        <DragHandleIcon boxSize={'.75rem'} />
+                      </Box>
+                    </SliderThumb>
                   </Slider>
                   <Slider
                     ml={4}
@@ -463,10 +499,10 @@ export const Control = () => {
                   >
                     <SliderTrack />
                     <SliderThumb boxSize={6}>
-                    <Box>
-                      <DragHandleIcon boxSize={'.75rem'} />
-                    </Box>
-                  </SliderThumb>
+                      <Box>
+                        <DragHandleIcon boxSize={'.75rem'} />
+                      </Box>
+                    </SliderThumb>
                   </Slider>
                 </HStack>
               </VStack>
