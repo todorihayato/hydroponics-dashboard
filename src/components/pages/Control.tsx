@@ -20,6 +20,7 @@ import { useEffect, useLayoutEffect, useState } from 'react'
 import { useControl } from '../functional/hooks/useControl'
 import { useSetDoc } from '../functional/hooks/useSetDoc'
 import { PagesContainer } from '../parts'
+import { DragHandleIcon } from '@chakra-ui/icons'
 
 type Time = `${number}${number}:${number}${number}` | `${string}:${string}`
 type NumRange = [min: number, max: number]
@@ -299,6 +300,8 @@ export const Control = () => {
                 <RangeSlider
                   min={100}
                   max={2000}
+                  step={10}
+                  colorScheme={'gray'}
                   value={[co2Range[0], co2Range[1]]}
                   onChange={(value) =>
                     handleOnChangeFanSlider(value as NumRange)
@@ -307,8 +310,16 @@ export const Control = () => {
                   <RangeSliderTrack>
                     <RangeSliderFilledTrack />
                   </RangeSliderTrack>
-                  <RangeSliderThumb boxSize={6} index={0} />
-                  <RangeSliderThumb boxSize={6} index={1} />
+                  <RangeSliderThumb boxSize={6} index={0}>
+                    <Box>
+                      <DragHandleIcon boxSize={'.75rem'} />
+                    </Box>
+                  </RangeSliderThumb>
+                  <RangeSliderThumb boxSize={6} index={1}>
+                    <Box>
+                      <DragHandleIcon boxSize={'.75rem'} />
+                    </Box>
+                  </RangeSliderThumb>
                 </RangeSlider>
               </VStack>
               <Button
@@ -337,10 +348,15 @@ export const Control = () => {
                   max={2}
                   value={ecValue}
                   step={0.1}
+                  colorScheme={'gray'}
                   onChange={(value) => handleOnChangeFertilizerSlider(value)}
                 >
                   <SliderTrack />
-                  <SliderThumb boxSize={6} />
+                  <SliderThumb boxSize={6}>
+                    <Box>
+                      <DragHandleIcon boxSize={'.75rem'} />
+                    </Box>
+                  </SliderThumb>
                 </Slider>
               </VStack>
               <Button
@@ -373,6 +389,7 @@ export const Control = () => {
                 <RangeSlider
                   min={-10}
                   max={40}
+                  colorScheme={'gray'}
                   value={[wTempRange[0], wTempRange[1]]}
                   onChange={(value) =>
                     handleOnChangeHeaterSlider(value as NumRange)
@@ -381,8 +398,16 @@ export const Control = () => {
                   <RangeSliderTrack>
                     <RangeSliderFilledTrack />
                   </RangeSliderTrack>
-                  <RangeSliderThumb boxSize={6} index={0} />
-                  <RangeSliderThumb boxSize={6} index={1} />
+                  <RangeSliderThumb boxSize={6} index={0}>
+                    <Box>
+                      <DragHandleIcon boxSize={'.75rem'}/>
+                    </Box>
+                  </RangeSliderThumb>
+                  <RangeSliderThumb boxSize={6} index={1}>
+                    <Box>
+                      <DragHandleIcon boxSize={'.75rem'}/>
+                    </Box>
+                  </RangeSliderThumb>
                 </RangeSlider>
               </VStack>
               <Button
@@ -417,21 +442,31 @@ export const Control = () => {
                     mr={4}
                     min={0}
                     max={287}
+                    colorScheme={'gray'}
                     value={startTime[1]}
                     onChange={(value) => handleOnChangeLightStartSlider(value)}
                   >
                     <SliderTrack />
-                    <SliderThumb boxSize={6} />
+                    <SliderThumb boxSize={6}>
+                    <Box>
+                      <DragHandleIcon boxSize={'.75rem'} />
+                    </Box>
+                  </SliderThumb>
                   </Slider>
                   <Slider
                     ml={4}
                     min={0}
                     max={287}
+                    colorScheme={'gray'}
                     value={endTime[1]}
                     onChange={(value) => handleOnChangeLightEndSlider(value)}
                   >
                     <SliderTrack />
-                    <SliderThumb boxSize={6} />
+                    <SliderThumb boxSize={6}>
+                    <Box>
+                      <DragHandleIcon boxSize={'.75rem'} />
+                    </Box>
+                  </SliderThumb>
                   </Slider>
                 </HStack>
               </VStack>
