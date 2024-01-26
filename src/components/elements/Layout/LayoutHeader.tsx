@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Text, Button } from '@chakra-ui/react'
 import { useLocation } from 'react-router-dom'
 
 export const LayoutHeader = () => {
@@ -7,10 +7,14 @@ export const LayoutHeader = () => {
     switch (path) {
       case '/':
         return 'Dashboard'
+      case '/ja':
+        return 'ダッシュボード'
       case '/ec':
         return 'EC'
       case '/co2':
         return 'CO2'
+      case '/co2ja':
+        return '二酸化炭素'
       case '/humidity':
         return 'Humidity'
       case '/temperature':
@@ -19,6 +23,8 @@ export const LayoutHeader = () => {
         return 'Water Temperature'
       case '/control':
         return 'Control'
+      case '/datastorage':
+        return 'DataStorage'
       default:
         return '404 Not Found😴'
     }

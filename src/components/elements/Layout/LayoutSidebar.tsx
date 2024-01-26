@@ -1,10 +1,64 @@
-import { Box, Divider, TabList, Tabs, Text } from '@chakra-ui/react'
+import { Box, Divider, TabList, Tabs, Text, Button, Stack } from '@chakra-ui/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { LayoutTab } from './LayoutTab'
+
+import { DiAndroid } from 'react-icons/di';
+import { FaCircle } from 'react-icons/fa';
+import { TbStarsFilled } from "react-icons/tb";
+
+import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
+
+//import { useTranslation } from "react-i18next";
+/*
+export const FooBarPage: React.FC = () => {
+  const { t } = useTranslation();
+  return (
+    <>
+      {t("Dashboard")}
+    </>
+  )
+}
+*/
+/*
+import i18n from 'i18next';
+import { useTranslation, initReactI18next } from 'react-i18next';
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: {
+        translation: {
+          'Welcome to React': 'Welcome to React and react-i18-next',
+        },
+      },
+    },
+    lng: 'en',
+    fallbackLng: 'en',
+
+    interpolation: {
+      escapeValue: false,
+    },
+  });
+
+  const App: React.FC = () => {
+    const { t } = useTranslation();
+
+    return <h2>{t('welcome to React')}</h2>
+  };
+  export default App;
+
+  */
 
 type PathName = '' | 'temperature' | 'water_temperature' | 'co2' | 'humidity' | 'ec' | 'control'
 
 export const LayoutSidebar = () => {
+
+  const buttonAlert = () => {
+    alert('clicked');
+  }
+
   const navigate = useNavigate()
   const currentPath = useLocation().pathname
   const revertPath = (currentPath: PathName) => {
@@ -24,6 +78,8 @@ export const LayoutSidebar = () => {
         return 5
       case 'control':
         return 6
+      case 'datastorage':
+        return 7
       default:
         return 0
     }
@@ -44,6 +100,8 @@ export const LayoutSidebar = () => {
         return 'co2'
       case 6:
         return 'control'
+      case 7:
+        return 'datastorage'
       default:
         return ''
     }
@@ -59,6 +117,34 @@ export const LayoutSidebar = () => {
       >
         <Link to='/'>IoT Hydroponics</Link>
       </Text>
+      <Stack spacing={'5%'} direction='row' align='right'>
+        <Button
+        leftIcon={<FaCircle />}
+        colorScheme='red'
+        size='xs'
+        variant='outline'
+        onClick={buttonAlert}
+            /*onClick={()=>
+              dispatch({
+                type: CHANGE_LANG,
+                payload: { lang: state.lang}
+              })}*/>
+          "japan"
+        </Button>
+        <Button
+        leftIcon={<TbStarsFilled />}
+        colorScheme='blue'
+        size='sm'
+        variant='outline'
+        onClick={() => navigate('/')}
+            /*onClick={()=>
+              dispatch({
+                type: CHANGE_LANG,
+                payload: { lang: state.lang}
+              })}*/>
+          "english"
+        </Button>
+      </Stack>
       <Box display={'flex'} justifyContent={'center'}>
         <Divider w={'152.82px'} opacity={1}/>
       </Box>
@@ -70,19 +156,21 @@ export const LayoutSidebar = () => {
           onChange={(index) => navigate(`/${convertPath(index)}`)}
         >
           <TabList>
-            <LayoutTab>Dashboard</LayoutTab>
+            <LayoutTab>Dashboard</LayoutTab> {/*Dashboard*/}
             <Divider opacity={1}/>
-            <LayoutTab>Temperature</LayoutTab>
-            <LayoutTab>Water Temp</LayoutTab>
-            <LayoutTab>Humidity</LayoutTab>
+            <LayoutTab>温度</LayoutTab> {/*Temperature*/}
+            <LayoutTab>水温</LayoutTab> {/*Water Temp*/}
+            <LayoutTab>湿度</LayoutTab> {/*Humidity*/}
             <LayoutTab>EC</LayoutTab>
             <LayoutTab>
               CO<sub>2</sub>
             </LayoutTab>
             <Divider opacity={1}/>
-            <LayoutTab>Control</LayoutTab>
+            <LayoutTab>コントロール</LayoutTab> {/*Control*/}
+            <LayoutTab>データ保管庫</LayoutTab>
           </TabList>
         </Tabs>
+        
       </Box>
     </Box>
   )
