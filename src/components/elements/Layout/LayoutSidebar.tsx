@@ -2,7 +2,7 @@ import { Box, Divider, TabList, Tabs, Text } from '@chakra-ui/react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { LayoutTab } from './LayoutTab'
 
-type PathName = '' | 'temperature' | 'water_temperature' | 'co2' | 'humidity' | 'ec' | 'control'
+type PathName = '' | 'temperature' | 'water_temperature' | 'co2' | 'humidity' | 'ec' | 'control' | 'datastorage'
 
 export const LayoutSidebar = () => {
   const navigate = useNavigate()
@@ -24,6 +24,8 @@ export const LayoutSidebar = () => {
         return 5
       case 'control':
         return 6
+      case 'datastorage':
+        return 7
       default:
         return 0
     }
@@ -44,6 +46,8 @@ export const LayoutSidebar = () => {
         return 'co2'
       case 6:
         return 'control'
+      case 7:
+        return 'datastorage'
       default:
         return ''
     }
@@ -81,6 +85,7 @@ export const LayoutSidebar = () => {
             </LayoutTab>
             <Divider opacity={1}/>
             <LayoutTab>Control</LayoutTab>
+            <LayoutTab>DataStorage</LayoutTab>
           </TabList>
         </Tabs>
       </Box>

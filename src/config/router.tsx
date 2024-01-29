@@ -8,6 +8,7 @@ import {
   WaterTemperature,
   Notfound,
   Control,
+  DataStorage
 } from '../components/pages'
 import { Layout } from '../components/parts'
 
@@ -23,6 +24,7 @@ export const RouterProvider = () => {
           <Route path="water_temperature" element={<WaterTemperature />} />
           <Route path="co2" element={<Co2 />} />
           <Route path='control' element={<Control />} />
+          <Route path="datastorage" element={<DataStorage />} />
           <Route path="*" element={<Notfound />} />
         </Route>
       </Routes>

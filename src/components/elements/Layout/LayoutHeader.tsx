@@ -19,6 +19,8 @@ export const LayoutHeader = () => {
         return 'Water Temperature'
       case '/control':
         return 'Control'
+      case '/datastorage':
+        return 'DataStorage'
       default:
         return '404 Not Found😴'
     }
