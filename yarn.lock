@@ -4378,7 +4378,7 @@
     "ora" "^5.0.0"
     "yargs-parser" "^21.0.0"
 
-"i18next@>= 23.2.3":
+"i18next@^23.8.1", "i18next@>= 23.2.3":
   "integrity" "sha512-Yhe6oiJhigSh64ev7nVVywu7vHjuUG41MRmFKNwphbkadqTL1ozZFBQISflY7/ju+gL6I/SPfI1GgWQh1yYArA=="
   "resolved" "https://registry.npmjs.org/i18next/-/i18next-23.8.1.tgz"
   "version" "23.8.1"
