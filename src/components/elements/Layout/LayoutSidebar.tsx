@@ -6,8 +6,8 @@ import { DiAndroid } from 'react-icons/di';
 import { FaCircle } from 'react-icons/fa';
 import { TbStarsFilled } from "react-icons/tb";
 
-
-//import { t } from '../../../change';
+//import i18n from 'i18next';
+//import { useTranslation } from 'react-i18next';
 
 //import { useTranslation } from "react-i18next";
 /*
@@ -20,9 +20,8 @@ export const FooBarPage: React.FC = () => {
   )
 }
 */
-
-import React from 'react';
-import i18n, { changeLanguage } from 'i18next';
+/*
+import i18n from 'i18next';
 import { useTranslation, initReactI18next } from 'react-i18next';
 
 i18n
@@ -31,14 +30,9 @@ i18n
     resources: {
       en: {
         translation: {
-          'IoT Hydroponics': 'IoT Hydroponics',
+          'Welcome to React': 'Welcome to React and react-i18-next',
         },
       },
-      ja: { 
-        translation: {
-          'IoT Hydroponics' : '水耕栽培システム',
-        },
-      }
     },
     lng: 'en',
     fallbackLng: 'en',
@@ -50,33 +44,24 @@ i18n
 
   const App: React.FC = () => {
     const { t } = useTranslation();
-    /*const onClickChangeLanguage = () => {
-      i18n.changeLanguage(i18n.language === 'en' ? 'ja' : 'en')
-    };*/
 
     return <h2>{t('welcome to React')}</h2>
   };
   export default App;
 
-
-
+  */
 
 type PathName = '' | 'temperature' | 'water_temperature' | 'co2' | 'humidity' | 'ec' | 'control'
 
 export const LayoutSidebar = () => {
 
-  
   const buttonAlert = () => {
     alert('clicked');
-  }
-  const onClickChangeLanguage = () => {
-    changeLanguage(i18n.language === 'en' ? 'ja' : 'en');
   }
 
   const navigate = useNavigate()
   const currentPath = useLocation().pathname
   const revertPath = (currentPath: PathName) => {
-
     const pathName = currentPath.slice(1)
     switch (pathName) {
       case '':
@@ -121,7 +106,6 @@ export const LayoutSidebar = () => {
         return ''
     }
   }
-  const { t } = useTranslation();
   return (
     <Box h={'100vh'} w={'240px'} shadow={'xl'} position={'fixed'} zIndex={'3'}>
       <Text
@@ -131,7 +115,7 @@ export const LayoutSidebar = () => {
         fontWeight={'800'}
         fontSize={'xl'}
       >
-        <Link to='/'>{t('IoT Hydroponics')}</Link>
+        <Link to='/'>IoT Hydroponics</Link>
       </Text>
       <Stack spacing={'5%'} direction='row' align='right'>
         <Button
@@ -139,8 +123,7 @@ export const LayoutSidebar = () => {
         colorScheme='red'
         size='xs'
         variant='outline'
-        onClick={onClickChangeLanguage}
-        //onClick={buttonAlert}
+        onClick={buttonAlert}
             /*onClick={()=>
               dispatch({
                 type: CHANGE_LANG,
