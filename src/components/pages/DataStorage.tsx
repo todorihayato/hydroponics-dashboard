@@ -63,6 +63,43 @@ const today = new Date();
 
 console.log(today)
 
+export const data = [
+    {
+        date: "2024-01-01",
+        temp: "3",
+        watertemp: "2",
+        humidity: "10",
+        ec: "1.0",
+        co2: "1000"
+    }
+]
+
+export const DataStorage = () => {
+  const {
+    co2Datas,
+    times,
+    setTemperatureDatas,
+    setWaterTemperatureDatas,
+    setCo2Datas,
+    setHumidityDatas,
+    setEcDatas,
+    setTimes,
+  } = useContext(SensingDataContext)
+  const nowDate = new Date().toISOString().slice(0, 10)
+  const datas = useSensingData(nowDate)
+
+  useEffect(() => {
+    setTemperatureDatas(datas.map((data) => data.temperature))
+    setWaterTemperatureDatas(datas.map((data) => data.water_temperature))
+    setCo2Datas(datas.map((data) => data.co2))
+    setHumidityDatas(datas.map((data) => data.humidity))
+    setEcDatas(datas.map((data) => data.ec))
+    setTimes(datas.map((data) => data.time))
+  }, [datas])
+
+  //const docRef = doc(db, )
+
+// useSensingDataのコード
 /*
 export const useSensingData = (date: string) => {
   const q = collection(db, 'sensing_data', date, 'time')
@@ -85,63 +122,6 @@ export const useSensingData = (date: string) => {
   return datas
 }
 */
-
-type Props = {
-    temperatureDatas: number[]
-    waterTemperatureDatas: number[]
-    times: string[]
-    w?: string
-    h?: string
-  }
-
-/*export const DataStorage = (hinichi: string) => {*/
-export const DataStorage = () => {
-  const {
-    co2Datas,
-    times,
-    setTemperatureDatas,
-    setWaterTemperatureDatas,
-    setCo2Datas,
-    setHumidityDatas,
-    setEcDatas,
-    setTimes,
-  } = useContext(SensingDataContext)
-  const nowDate = new Date().toISOString().slice(0, 10)
-  const datas = useSensingData(nowDate)
-
-  //const q = collection(db, 'sensing_data', hinichi, 'time')
-  const q = collection(db, 'sensing_data', '2024-01-30', '00:00')
-  const [datass, setDatas] = useState<DocumentData[]>([])
-  onSnapshot(q, (snapShot) => {
-    const newDatas: DocumentData[] = []
-    snapShot.docChanges().forEach((change) => {
-      if (change.type === 'added') {
-        newDatas.push(change.doc.data())
-      }
-      if (change.type === 'modified') {
-        // console.log('change.type is modified...')
-      }
-      if (change.type === 'removed') {
-        // console.log('change.type is removed...')
-      }
-    })
-    setDatas(newDatas)
-  })
-  //return datass
-
-
-  useEffect(() => {
-    setTemperatureDatas(datas.map((data) => data.temperature))
-    setWaterTemperatureDatas(datas.map((data) => data.water_temperature))
-    setCo2Datas(datas.map((data) => data.co2))
-    setHumidityDatas(datas.map((data) => data.humidity))
-    setEcDatas(datas.map((data) => data.ec))
-    setTimes(datas.map((data) => data.time))
-  }, [datas])
-
-  //const docRef = doc(db, )
-
-// useSensingDataのコード
 
   const [date, setDate] = useState<string>();
   const [time, setTime] = useState<string>();
@@ -197,7 +177,6 @@ export const DataStorage = () => {
     <PagesContainer>
         <Text></Text>
         {/* <p>{co2Datas}</p> */}
-        {/* <p>{props.temperatureDatas}</p> */} //できていない行
         <p>{date}<span>{time}</span></p>
         <DashboardRealtimeData />
         <TableContainer>
