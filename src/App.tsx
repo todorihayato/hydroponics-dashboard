@@ -6,3 +6,9 @@ export const App = () => (
     <RouterProvider />
   </SensingDataProvider>
 )
+
+/*export const App = () => (
+  <SensingDataProvider>
+    <RouterProvider />
+  </SensingDataProvider>
+)*/
