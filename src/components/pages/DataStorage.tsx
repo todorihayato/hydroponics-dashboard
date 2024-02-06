@@ -94,7 +94,8 @@ type Props = {
     h?: string
   }
 
-export const DataStorage = (hinichi: string) => {
+/*export const DataStorage = (hinichi: string) => {*/
+export const DataStorage = () => {
   const {
     co2Datas,
     times,
